@@ -16,8 +16,10 @@ CREATE TABLE Student (
     FOREIGN KEY (AddressID) REFERENCES Addresses(AddressID),
     GradeLevel INT
 );
+
 Select *from Addresses
 Select * from Student
+	
 -- Teachers table
 CREATE TABLE Teachers (
     TeacherID INT PRIMARY KEY,
@@ -54,6 +56,7 @@ CREATE TABLE Grades (
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
     FOREIGN KEY (ClassID) REFERENCES Classes(ClassID)
 );
+
 --Getting to view the tables
 Select * from Teachers
 Select * from Classes
@@ -66,6 +69,7 @@ Alter table Classes add ClassTotal INT;
 --Removing columns State and Zipcode under table Addresses
 Alter table Addresses drop column State;
 Alter table Addresses drop column Zipcode;
+
 --Insert values to Addresses data
 INSERT INTO Addresses (AddressID, PrimaryAddress, City)
 VALUES(1,'145 Raila Way' ,'Nairobi'),
@@ -141,8 +145,10 @@ SELECT Teachers.FirstName, Teachers.LastName
 FROM Teachers
 JOIN Classes ON Teachers.TeacherID = Classes.TeacherID
 WHERE Classes.ClassID = 104;
+
 --Getting all the Departments that the school have
 SELECT Department from Teachers;
+
 --Calculating Maximum,minimum,average,count and the total grades from the grade table
 SELECT MAX(Grade) from	Grades;
 SELECT MIN(Grade) from	Grades;
